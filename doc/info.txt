@@ -1,0 +1,5 @@
+possibly add a feature to cycle through a couple of different pictures
+a button near top-right
+i'd have like 10-15 pictures (windows intro screens)
+that look nice, and cycle one by one
+(would still need to figure out how to do that...)

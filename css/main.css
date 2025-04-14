@@ -1,0 +1,137 @@
+body{
+    /* background-image: url(../images/default_background.jpg); */
+    margin: 10px;
+    /* Ensure the background image fills the screen */
+    background-size: cover;
+    background-position: center center;
+    
+    /* Prevent the background image from repeating */
+    background-repeat: no-repeat;
+
+    /* Optional: Add a fallback background color */
+    background-color: #f0f0f0; /* Light gray, or any color you prefer */
+    
+    /* Optional: Fixed background for parallax effect */
+    background-attachment: fixed;
+    
+    /* Optional: Add a transition for smooth changes */
+    transition: background-image 0.5s ease-in-out;
+}
+main{
+    padding: 20px;
+    /* min-height: 600px; */
+    background-color: white;
+    border-radius: 30px;
+    min-width: 340px;
+}
+#add{
+    margin: 15px;
+}
+#add2{
+    margin-left: 10px;
+}
+#addInput.hidden{
+    display: none;
+}
+#addInput.shown{
+    display: flex;
+}
+.removeBtn{
+    /* margin-left: 80%; */
+    /* height: 24px; */
+    max-height: 38px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#add.hidden{
+    display: none;
+}
+#add.shown{
+    display: unset;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-around;
+}
+/* Mobile: (info: long-word-todo has become redundant)*/
+@media screen and (max-width: 600px){
+    .list-group-item {
+        display: grid;
+        grid-template-columns: 1fr 120px;
+        align-items: center;
+        gap: 8px;  /* spacing between each element */
+        min-width: 300px;
+    }
+    .removeBtn {
+        display: none;
+    }
+    .long-word-todo {
+        grid-template-columns: 1fr;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+    .long-word-todo > .buttonContainer {
+        max-width: 75vw; 
+    }
+}
+
+/* Desktop: */
+@media screen and (min-width: 601px) {
+    .list-group-item {
+        display: grid;
+        grid-template-columns: 1fr 200px;  /* body, editBtn, checkbox, deleteBtn */
+        align-items: center;
+        gap: 8px;  /* spacing between each element */
+    }
+    .trashcan {
+        display: none;
+    }
+}
+
+.editBtn {
+    padding: 0.25rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    width: 40px;
+    /* margin-right: 12px; */
+}
+input[type=checkbox]{
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.dropdown-toggle{
+    opacity: 0.7;
+}
+#secureEditContainer {
+    display: flex;
+    justify-content: flex-end;  /* Moves the box to the right */
+    align-items: center;        /* Centers the box vertically */
+    margin-top: 8px;           /* Adjust top margin to your liking */
+    margin-right: 8px;
+}
+
+#secureEditBox {
+    background-color: white;    /* White background for the box */
+    padding: 10px 15px;         /* Some padding around the content */
+    border-radius: 8px;         /* Optional: rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Optional: soft shadow */
+    display: flex;
+    align-items: center;        /* Vertically align checkbox and text */
+}
+
+#secureEdit {
+    margin-right: 5px;  /* Adjust space between checkbox and label */
+}
+.todoBody {
+    word-break: break-all;
+}

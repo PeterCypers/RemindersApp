@@ -1,0 +1,20 @@
+    // by GPT
+    // Variable Mobile-styling based on if the longest word is too big
+    checkLongestWordLength(inputElement) {
+        const words = inputElement.value.split(/\s+/);
+        const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
+        const length = longest.length;
+    
+        // Get the parent element
+        const parent = inputElement.parentElement;
+    
+        // Reset classes on the parent element
+        parent.classList.remove("long-word-todo", "normal-word-todo");
+    
+        // Apply conditional classes to the parent element based on the longest word's length
+        if (length > 15) {
+            parent.classList.add("long-word-todo");
+        } else if (length > 8) {
+            parent.classList.add("normal-word-todo");
+        }
+    }

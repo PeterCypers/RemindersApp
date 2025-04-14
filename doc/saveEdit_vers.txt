@@ -1,0 +1,61 @@
+const saveEdit = () => {
+    const newText = input.value.trim() || '[ Empty ]';
+    todo.body = newText;
+    this.setTodosInStorage();
+    this.toHTML(); // Re-render to reflect update
+};
+
+const saveEdit = () => {
+    const newText = input.value.trim() || '[ Empty ]';
+    if (newText !== todo.body) {
+        if (confirm(`Update this todo?\n\nOld: "${todo.body}"\nNew: "${newText}"`)) {
+            todo.body = newText;
+            this.setTodosInStorage();
+            this.toHTML(); // Re-render to reflect update
+        } else {
+            this.toHTML(); // Just re-render to restore the original view
+        }
+    } else {
+        this.toHTML(); // No change, just re-render
+    }
+}; 
+
+
+let hasSaved = false;
+const saveEdit = () => {
+    if (hasSaved) return;
+    hasSaved = true;
+
+    const newText = input.value.trim() || '[ Empty ]';
+    if (newText !== todo.body) {
+        if (confirm(`Update this todo?\n\nOld: "${todo.body}"\nNew: "${newText}"`)) {
+            todo.body = newText;
+            this.setTodosInStorage();
+        }
+    }
+    this.toHTML(); // Re-render either way
+};
+
+const saveSecureEdit = () => {
+    if (hasSaved) return;
+    hasSaved = true;
+
+    const newText = input.value.trim() || '[ Empty ]';
+    if (newText !== todo.body) {
+        if (confirm(`Update this todo?\n\nOld: "${todo.body}"\nNew: "${newText}"`)) {
+            todo.body = newText;
+            this.setTodosInStorage();
+        }
+    }
+    this.toHTML();
+};
+
+const saveSmoothEdit = () => {
+    if (hasSaved) return;
+    hasSaved = true;
+
+    const newText = input.value.trim() || '[ Empty ]';
+    todo.body = newText;
+    this.setTodosInStorage();
+    this.toHTML();
+}; 
