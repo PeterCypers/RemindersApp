@@ -34,13 +34,19 @@ function resetBackgroundImage() {
     loadBackgroundImage();
   }
 }
-
+/**
+ * "url(../images/default_background.jpg)" -> normal relative path for opening from filesystem
+ * or on infinityfree.com
+ * 
+ * for GitHub we need a relative path with as root the base-url of my github domain:
+ * "url(/images/default_background.jpg)"
+ */
 export function loadBackgroundImage() {
   const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   if (!stored){
     document.getElementsByTagName("body")[0]
-    .style.backgroundImage = "url(../images/default_background.jpg)"; //default_background
+    .style.backgroundImage = "url(/images/default_background.jpg)"; //default_background
   }
   else {
     document.getElementsByTagName("body")[0]
